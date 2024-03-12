@@ -1,4 +1,4 @@
-from model.main import printing
+from main.main import printing
 import streamlit as st
 
 st.write(printing())
