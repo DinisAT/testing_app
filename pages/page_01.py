@@ -1,4 +1,4 @@
-from main import printing
+from main.main import printing
 import streamlit as st
 
 st.title("Page 01")
