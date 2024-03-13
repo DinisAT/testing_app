@@ -1,5 +1,5 @@
 
-from main.main import printing
+
 import streamlit as st
 import os
 import requests
