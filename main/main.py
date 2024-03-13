@@ -68,7 +68,7 @@ def createTalk(coach_name, input):
     response = requests.post(url, json=payload, headers=headers)
     #data = json.loads(response.text)
     #id_video = data.get("id")
-    return response.text#id_video #response,
+    return response#id_video #response,
 
 def getTalk(id_video):
     url = "https://api.d-id.com/talks/"+str(id_video)
