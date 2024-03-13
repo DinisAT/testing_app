@@ -3,7 +3,7 @@ import streamlit as st
 
 input = st.text_input("Enter your text")
 
-coach = st.text_input("Enter your coach's name")
+coach = str(st.text_input("Enter your coach's name"))
 
 while coach == "":
     continue
