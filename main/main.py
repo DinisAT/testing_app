@@ -5,7 +5,8 @@ import os
 import requests
 import json
 import time
-key = os.environ.get('key')
+
+
 
 # list of coach options
 coach_dict = { "Peter" : { 'url' : "https://clips-presenters.d-id.com/darren/RYscOXmp8t/CtDjn3POSq/image.png",
@@ -31,40 +32,43 @@ def createTalk(coach_name, input):
 
     payload = {
         "source_url": source_url,
+
         "script": {
-            "type": "text",
-            "input": input,
-            "provider":{
-                "type": "microsoft",
-                "voice_id": voice_id,
-                "voice_config":{
-                    "style": style,
-                }
-            }
+        "type": "text",
+        "subtitles": "false",
+        "provider": {
+            "type": "microsoft",
+            "voice_id": voice_id,
+            "voice_config": { "style": style}
         },
+        "input": str(input)
+    },
         "config": {
             "fluent": "false",
             "pad_audio": "0.0",
-            "stitch": True,
             "driver_expressions": {
                     "expressions": [
                         {
-                        "start_frame": 0,
                         "expression": "happy",
+                        "start_frame": 0,
                         "intensity": 1
                         }]
             },
+            "stitch": True
         }
+
     }
+
     headers = {
         "accept": "application/json",
         "content-type": "application/json",
-        "authorization": key
+        "authorization": "Basic WkdsdWFYTmhiV0ZrYjNKQVoyMWhhV3d1WTI5dDpEYUhKZmdVakpLcFlQWTdQd0QwQkc="
     }
+
     response = requests.post(url, json=payload, headers=headers)
-    data = json.loads(response.text)
-    id_video = data.get("id")
-    return id_video #response,
+    #data = json.loads(response.text)
+    #id_video = data.get("id")
+    return response.text#id_video #response,
 
 def getTalk(id_video):
     url = "https://api.d-id.com/talks/"+str(id_video)
