@@ -8,4 +8,4 @@ coach = str(st.text_input("Enter your coach's name"))
 while coach == "":
     continue
 if coach:
-    st.write(createTalk(input, coach))
+    st.write(createTalk(input=input, coach_name=coach))
