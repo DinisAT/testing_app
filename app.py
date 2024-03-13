@@ -1,4 +1,9 @@
-from main.main import printing
+from main.main import *
 import streamlit as st
 
-st.write(printing())
+input = st.text_input("Enter your text")
+
+coach = st.text_input("Enter your coach's name")
+
+
+st.write(createTalk(input, coach))
